@@ -10,8 +10,7 @@ const CodingPlayground = () => {
   const handleRunCode = async () => {
     setOutput('Running...');
     
-    // Send code to backend API for execution
-    const response = await fetch('http://localhost:5000/execute', {
+    const response = await fetch('http://localhost:5000/api/execute', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
