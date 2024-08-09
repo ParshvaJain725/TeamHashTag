@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { FaArrowLeft } from 'react-icons/fa';
 
 const CodingPlayground = () => {
   const [code, setCode] = useState('');
@@ -6,11 +8,11 @@ const CodingPlayground = () => {
   const [output, setOutput] = useState('');
   const [executionTime, setExecutionTime] = useState('');
   const [memoryUsage, setMemoryUsage] = useState('');
+  const navigate = useNavigate();
 
   const handleRunCode = async () => {
     setOutput('Running...');
     
-    // Send code to backend API for execution
     const response = await fetch('http://localhost:5000/execute', {
       method: 'POST',
       headers: {
@@ -31,6 +33,15 @@ const CodingPlayground = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white p-6">
+      {/* Back Arrow */}
+      <button
+        onClick={() => navigate('/main')}
+        className="text-white mb-4 flex items-center gap-2"
+      >
+        <FaArrowLeft className="text-xl" /> {/* Left arrow icon */}
+        <span>Back to Main Page</span>
+      </button>
+
       <div className="mb-4">
         <h1 className="text-2xl font-bold">C++ Coding Playground</h1>
       </div>

@@ -1,7 +1,7 @@
 // backend/controllers/authController.js
 const User = require('../models/User');
 
-// Handle creating a new user or returning an existing user
+
 exports.registerOrLoginUser = async (req, res) => {
     const { username } = req.body;
 
